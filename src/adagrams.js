@@ -101,7 +101,7 @@ const Adagrams = {
       score += this.letterScores[wordScored];
     }
 
-    if (word.length >= 7) {
+    if (6 < word.length && word.length < 11) {
       score += 8;
     }
 
@@ -109,14 +109,14 @@ const Adagrams = {
   },
 
 
-  highestScoreFrom(playedWords) {
+  highestScoreFrom(words) {
     // let highestScorer = {word: undefined, score: 0};
     let highestScorer = {
-      word: playedWords[0],
-      score: this.scoreWord(playedWords[0])
+      word: words[0],
+      score: this.scoreWord(words[0])
     };
 
-    for (let word of playedWords) {
+    for (let word of words) {
       if (this.scoreWord(word) > highestScorer.score) {
         highestScorer.word = word;
         highestScorer.score = this.scoreWord(word);
