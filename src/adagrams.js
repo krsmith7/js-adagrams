@@ -109,17 +109,33 @@ const Adagrams = {
   },
 
 
-highestScoreFrom(playedWords) {
-  let highestScorer = {word: undefined, score: 0};
+  highestScoreFrom(playedWords) {
+    // let highestScorer = {word: undefined, score: 0};
+    let highestScorer = {
+      word: playedWords[0],
+      score: this.scoreWord(playedWords[0])
+    };
 
-  for (let word of playedWords) {
-    if (this.scoreWord(word) > highestScorer.score) {
-      highestScorer.word = word;
-      highestScorer.score = this.scoreWord(word);
+    for (let word of playedWords) {
+      if (this.scoreWord(word) > highestScorer.score) {
+        highestScorer.word = word;
+        highestScorer.score = this.scoreWord(word);
+
+      // } else if (this.scoreWord(word) == highestScorer.score &&
+      } else if (this.scoreWord(word) == highestScorer.score) {
+
+        if (word.length == 10 && highestScorer.word.length != 10) {
+          highestScorer.word = word;
+          highestScorer.score = this.scoreWord(word);
+        } else if (word.length != 10 && highestScorer.word.length != 10 && word.length < highestScorer.word.length) {
+          highestScorer.word = word;
+          highestScorer.score = this.scoreWord(word);
+        }
+      }
     }
-  }
-  return highestScorer;
-},
+
+    return highestScorer
+  },
 
 
 
