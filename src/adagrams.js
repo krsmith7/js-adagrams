@@ -35,18 +35,18 @@ const Adagrams = {
   }, //of drawLetters
 
 
-  usesAvailableLetters(word, drawLetters) {
+  usesAvailableLetters(input, lettersInHand) {
     // const setWord = new Set(word);
     // const setDrawLetters = new Set(drawLetters);
     //
     // const intersection = [...setWord].filter(x=> setDrawLetters.has(x));
     // return intersection.sort == drawLetters.sort;
 
-    let wordLetters = word.split("");
-    let drawnLetters = [...drawLetters];
+    let wordLetters = input.split("");
+    let drawnLetters = [...lettersInHand];
     // let drawnLetters = new Set(drawLetters);
 
-    for(let i = 0; i < word.length; i++) {
+    for(let i = 0; i < input.length; i++) {
       if (drawnLetters.includes(wordLetters[i])) {
         let index = drawnLetters.indexOf(wordLetters[i]);
         drawnLetters.splice(index, 1);
