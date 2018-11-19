@@ -31,6 +31,8 @@
     "regenerator-runtime": "^0.12.1"
   },
   "dependencies": {
+    "g": "^2.0.1",
+    "jasmine-node": "^1.16.2",
     "vorpal": "^1.12.0"
   }
 }
