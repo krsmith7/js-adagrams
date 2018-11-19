@@ -55,49 +55,56 @@ const Adagrams = {
     }
     return true;
   },
-  //   return wordLetters.every((letter) => {
-  //     if (drawnLetters.has(letter)) {
-  //       let index = drawnLetters.indexOf(letter);
-  //       drawnLetters.splice(index, 1);
-  //     } else {
-  //       return false
-  //     }
-  //   });
-  //   return true
-  // },
 
-  // const letterScores = {
-  //  "A": 1,
-  //  "E": 1,
-  //  "I": 1,
-  //  "O": 1,
-  //  "U": 1,
-  //  "L": 1,
-  //  "N": 1,
-  //  "R": 1,
-  //  "S": 1,
-  //  "T": 1,
-  //  "D": 2,
-  //  "G": 2,
-  //  "B": 3,
-  //  "C": 3,
-  //  "M": 3,
-  //  "P": 3,
-  //  "F": 4,
-  //  "H": 4,
-  //  "V": 4,
-  //  "W": 4,
-  //  "Y": 4,
-  //  "K": 5,
-  //  "J": 8,
-  //  "X": 8,
-  //  "Q": 10,
-  //  "Z": 10
-  // },
-  //
-  // const scoreWord = function scoreWord() {
-  //
-  // },
+
+  letterScores: {
+   "A": 1,
+   "E": 1,
+   "I": 1,
+   "O": 1,
+   "U": 1,
+   "L": 1,
+   "N": 1,
+   "R": 1,
+   "S": 1,
+   "T": 1,
+   "D": 2,
+   "G": 2,
+   "B": 3,
+   "C": 3,
+   "M": 3,
+   "P": 3,
+   "F": 4,
+   "H": 4,
+   "V": 4,
+   "W": 4,
+   "Y": 4,
+   "K": 5,
+   "J": 8,
+   "X": 8,
+   "Q": 10,
+   "Z": 10
+  },
+
+  scoreWord(word) {
+    let wordScored = word.toUpperCase().split("");
+    let score = 0;
+
+    if (word.length > 1) {
+      for (let letter of wordScored) {
+        score += this.letterScores[letter];
+      }
+    }
+    else if (word.length == 1) {
+      score += this.letterScores[wordScored];
+    }
+
+    if (word.length >= 7) {
+      score += 8;
+    }
+
+    return score;
+  },
 
 
 
