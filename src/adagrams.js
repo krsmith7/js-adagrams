@@ -26,12 +26,14 @@ const Adagrams = {
   "X", "Y", "Y", "Z"
   ],
 
+
   drawLetters() {
     let drawn = new Array;
     for (let i = 0; i<10; i++) {
       drawn.push( this.letterPool[ Math.floor( Math.random()* this.letterPool.length) ])}
     return drawn;
   }, //of drawLetters
+
 
   usesAvailableLetters(word, drawLetters) {
     // const setWord = new Set(word);
@@ -105,6 +107,20 @@ const Adagrams = {
 
     return score;
   },
+
+
+highestScoreFrom(playedWords) {
+  let highestScorer = {word: undefined, score: 0};
+
+  for (let word of playedWords) {
+    if (this.scoreWord(word) > highestScorer.score) {
+      highestScorer.word = word;
+      highestScorer.score = this.scoreWord(word);
+    }
+  }
+  return highestScorer;
+},
+
 
 
 
