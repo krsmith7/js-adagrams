@@ -121,7 +121,7 @@ const Adagrams = {
         highestScorer.word = word;
         highestScorer.score = this.scoreWord(word);
 
-      // } else if (this.scoreWord(word) == highestScorer.score &&
+      // none of tie logic works. missing logic in if else? replace "word" with other variable name for clarity/less bug poss?
       } else if (this.scoreWord(word) == highestScorer.score) {
 
         if (word.length == 10 && highestScorer.word.length != 10) {
@@ -131,6 +131,8 @@ const Adagrams = {
           highestScorer.word = word;
           highestScorer.score = this.scoreWord(word);
         }
+        // } else if (word.length == highestScorer.word.length)
+        // above code already will keep first appearing word as highest?
       }
     }
 
